@@ -1,0 +1,44 @@
+<div class="row">
+	<div class="col-sm-6 col-md-4 offset-md-4 offset-md-3">
+		<div id="success" class="alert alert-success {{#if noMessage}}d-none{{/if}}" role="alert">
+			{{ successMsg }}
+		</div>
+	</div>
+</div>
+{{#if length}}
+<div class="container top-of-50 bottom-of-50">
+	<div class="row">
+		{{#each order}}
+		<div class="col-sm-12 col-lg-4">
+			<div class="card">
+				<div class="card-header">
+					<div>
+						<h3 style=" width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-align: center!important;
+  text-overflow: ellipsis;">
+							<a href="/all-details-of-order/{{this.id}}" target="_blank">
+								{{this.cart.productName}}</a>
+						</h3>
+					</div>
+				</div>
+				<div class="card-content text-center" style="padding: 10px;">
+					<img src="{{this.cart.productImage}}" width="250" class="img-fluid" alt="">
+				</div>
+				<div class="card-footer text-center">
+					<a href="/cancle-order" class="text-danger">
+						<i class="fa fa-ban" aria-hidden="true"></i> Cancle Order
+					</a>
+				</div>
+			</div>
+		</div>
+		{{/each}}
+	</div>
+</div>
+{{else}}
+<div class="text-center top-of-50 text-warning">
+	<h3>Hmm...You didn't order anything yet</h3>
+	<a href="/">Let's Order Somthing</a>
+</div>
+{{/if}}
